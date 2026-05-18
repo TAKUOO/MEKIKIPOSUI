@@ -9,7 +9,7 @@ const navItems = [
   { label: '地金価格', icon: 'currency_exchange' },
 ]
 
-export default function Sidebar({ activeItem = 'アイテム' }) {
+export default function Sidebar({ activeItem = 'ホーム', onNavClick }) {
   return (
     <aside
       className="fixed top-0 left-0 h-screen w-[237px] flex flex-col px-4 pt-6 gap-6"
@@ -35,6 +35,7 @@ export default function Sidebar({ activeItem = 'アイテム' }) {
           return (
             <button
               key={label}
+              onClick={() => onNavClick?.(label)}
               className="flex items-center gap-2 px-2 py-[10px] text-[14px] font-medium rounded-lg text-left w-full"
               style={{
                 backgroundColor: isActive ? '#dbdbe8' : 'transparent',
